@@ -129,8 +129,8 @@ vim.o.completeopt = 'menuone,noselect'
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.mapleader = ';'
+vim.g.maplocalleader = ','
 
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
@@ -331,30 +331,62 @@ local on_attach = function(_, bufnr)
   end, { desc = 'Format current buffer with LSP' })
 end
 
+local lspconfig = require("lspconfig")
 -- Enable the following language servers
 --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
 --
 --  Add any additional override configuration in the following tables. They will be passed to
 --  the `settings` field of the server config. You must look up that documentation yourself.
 local servers = {
+
+  -- ...............
   -- clangd = {},
   -- gopls = {},
   -- pyright = {},
-  --
-  emmet_ls = {},
+  -- ...............
+
+  emmet_ls = {
+    filetypes = { "html", "css", "scss", "sass", "less" }
+  },
   astro = {},
+  volar = {
+    init_options = {
+      typescript = {
+        tsdk = '/home/user/.npm-global/lib/node_modules/typescript/lib'
+      }
+    }
+  },
   svelte = {},
-  -- DEBUG / bashls = {},
-  -- DEBUG / awk_ls = {},
-  -- DEBUG / dockerls = {},
-  -- DEBUG / graphql = {
-  -- DEBUG /   filetypes = { "graphql" }
-  -- DEBUG / }
+  bashls = {},
+  dockerls = {},
+  -- eslint = {},
+  -- jsonls = {},
+  -- yamlls = {},
+  -- r_language_server = {},
+  -- csharp_ls = {},
+
+  -- ...............
+  -- Failed to install these:
+  -- awk_ls = {},
+  -- sqlls = {},
+  -- ...............
+
+  graphql = {
+    filetypes = { "graphql" }
+  },
 
   rust_analyzer = {},
   tsserver = {},
+  denols = {
+    root_dir = {
+      root_pattern = {
+        "deno.json",
+        "deno.jasonc"
+      }
+    }
+  },
 
-  -- DEBUG / -- Use pylsp
+  -- Use pylsp
   pylsp = {
     pylsp = {
       plugins = {
@@ -374,6 +406,8 @@ local servers = {
       telemetry = { enable = false },
     },
   },
+
+  marksman = {},
 }
 
 -- Setup neovim lua configuration
