@@ -26,7 +26,7 @@ map('n', '<leader>gco', ':Gcheckout<cr>', options)
 map('n', '<leader>gci', ':Gcommit<cr>', options)
 map('n', '<leader>gm', ':Gmove<cr>', options)
 map('n', '<leader>gr', ':Gremove<cr>', options)
-map('n', '<leader>gl :Shell git gl -18<cr>:wincmd', '\|<cr>', options)
+map('n', '<leader>gl :Shell git gl -18<cr>:wincmd', '|<cr>', options)
 
 vim.cmd([[
   augroup ft_fugitive

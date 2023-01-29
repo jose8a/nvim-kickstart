@@ -154,7 +154,7 @@ map('i', '<leader>cd', '<C-x><C-k>', options)
 -- "-----------------------------------"
 -- " Save View
 -- "-----------------------------------"
--- " source: 
+-- " source:
 --    + [Make views automatic](http://vim.wikia.com/wiki/Make_views_automatic)
 -- "
 -- " save folds when closing file for continuing on next open of same file
@@ -172,10 +172,10 @@ cmd([[ autocmd BufWinEnter *.* silent! loadview ]])
 -- nmap wj <C-W>j
 -- nmap wk <C-W>k
 -- nmap wl <C-W>l
-map('n', 'wh', '<C-W>h')
-map('n', 'wj', '<C-W>j')
-map('n', 'wk', '<C-W>k')
-map('n', 'wl', '<C-W>l')
+map('n', 'wh', '<C-W>h', {})
+map('n', 'wj', '<C-W>j', {})
+map('n', 'wk', '<C-W>k', {})
+map('n', 'wl', '<C-W>l', {})
 
 -- " MORE NATURAL SPLIT OPENING -- Open new split panes to
 -- " the right and bottom, which feels more natural than Vim’s default:
@@ -185,8 +185,8 @@ set.splitright = true
 -- " Easier split resizing
 -- :command Widen :vertical resize
 -- :command Grow  :resize
-user_cmd('Widen', ':vertical resize')
-user_cmd('Grow', ':resize')
+user_cmd('Widen', ':vertical resize', {})
+user_cmd('Grow', ':resize', {})
 
 
 -- "------------------------"
@@ -194,11 +194,11 @@ user_cmd('Grow', ':resize')
 -- "------------------------"
 -- """ copy to clipboard
 -- nmap cc "+
-map('n', 'cc', '"+')
+map('n', 'cc', '"+', {})
 
 -- "" paste from clipboard
 -- nmap cp "+p
-map('n', 'cp', '"+p')
+map('n', 'cp', '"+p', {})
 
 
 -- "-----------------------------------"
@@ -211,14 +211,14 @@ map('n', 'cp', '"+p')
 set.timeoutlen = 1500
 
 if vim.fn.has('mac') then
-  map('n', '<leader>x', ':!/Applications/Firefox.app/Contents/MacOS/firefox %<CR>')
-  map('n', '<leader>b', ':!/Applications/Brave Browser.app/Contents/MacOS/Brave Browser %<CR>')
+  map('n', '<leader>x', ':!/Applications/Firefox.app/Contents/MacOS/firefox %<CR>', {})
+  map('n', '<leader>b', ':!/Applications/Brave Browser.app/Contents/MacOS/Brave Browser %<CR>', {})
 end
 
 -- FIXME: LUA convert for linux, what are the paths to these two application ??
 if vim.fn.has('linux') then
-  map('n', '<leader>x', ':!/path/to/firefox %<CR>')
-  map('n', '<leader>b', ':!/path/to/Brave/Browser %<CR>')
+  map('n', '<leader>x', ':!/path/to/firefox %<CR>', {})
+  map('n', '<leader>b', ':!/path/to/Brave/Browser %<CR>', {})
 end
 
 
@@ -229,7 +229,7 @@ end
 -- " ..
 -- " ..
 -- FIXME: LUA convert .. unsure of the best way to convert the following
--- user function to Lua .. or at least something that will execute 
+-- user function to Lua .. or at least something that will execute
 -- properly within a LUA context/file.
 -- "-----------------------------------"
 --

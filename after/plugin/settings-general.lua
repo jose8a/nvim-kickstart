@@ -43,7 +43,7 @@ vim.g.mapleader = ";"                 -- " Want a different map leader than \
 vim.g.maplocalleader = ","            -- " Map a local filetype leader to '\'
 
 set.hidden = true                     -- " Switch between buffers without saving
-set.timeoutlen = 200                  -- " Ever notice a slight lag after typing the 
+set.timeoutlen = 200                  -- " Ever notice a slight lag after typing the
                                       -- " leader key + command? This lowers the timeout.
 
 
@@ -87,25 +87,26 @@ set.backspace = {
 set.autowrite = true                       -- " Write the old file out when switching between files.
 set.ruler = true                           -- " Display current cursor position in lower right corner.
 
--- " 2017.0209 after a MacOSX crash, all 
--- files open in RO only mode.  Need to 
+-- " 2017.0209 after a MacOSX crash, all
+-- files open in RO only mode.  Need to
 -- disble RO mode until find cause.
-set.noro = true                            -- " globally set no-readonly mode on all files
+-- NOTE: 2023.0129 .. this appears to be an invalid setting in neovim
+-- set.noro = true                            -- " globally set no-readonly mode on all files
 
 -- " Session settings
 -- size,buffers,tabpages,folds,curdir,help
 set.sessionoptions = {
    'resize',
    'winpos',
-   'win'
+   'buffers'
 }
 
 
 -- "-----------------------------------"
 -- " SWAP/BACKUP FILE/DIR SETTINGS
 -- "-----------------------------------"
--- FIXME: LUA convert - shouldn't these paths be set to a path 
--- usually employed by neovim .. such as '~/.local/state/nvim/swap/..' 
+-- FIXME: LUA convert - shouldn't these paths be set to a path
+-- usually employed by neovim .. such as '~/.local/state/nvim/swap/..'
 -- or '.local/state/nvim/undo/..', etc
 -- .....
 -- "set.backupdir = '~/.vim/tmp/backup//'   -- " Set Backups directory
@@ -116,14 +117,14 @@ set.sessionoptions = {
 
 
 -- FIXME: LUA convert - unsure how to convert
--- set.pastetoggle = <leader>pt          
+-- set.pastetoggle = <leader>pt
 -- " Prevents nasty side-effects when pasting large chunks of text/code
 
 
 -- -----------------------------------"
 --  Simple StatusLine
 -- -----------------------------------"
--- NOTE: 2023.0128 .. commented out since likely using lualine or 
+-- NOTE: 2023.0128 .. commented out since likely using lualine or
 -- .. similar instead
 -- set.statusline = '%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]'
 
@@ -164,7 +165,7 @@ set.sessionoptions = {
 -- "   - https://github.com/Valloric/YouCompleteMe.
 -- "-----------------------------------"
 
--- FIXME: LUA convert: maybe just used the setup for 
+-- FIXME: LUA convert: maybe just used the setup for
 -- the plugin in the 'plugins' setup file ??
 -- vim.g.UltiSnipsExpandTrigger="<tab>"
 -- vim.g.UltiSnipsJumpForwardTrigger="<c-b>"
