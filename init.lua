@@ -95,6 +95,9 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 -- [[ Setting options ]]
 -- See `:help vim.o`
 
+-- map ESC to 'jj' -- much faster to toggle i/n modes
+vim.keymap.set('i', 'jj', '<esc>')
+
 -- Set highlight on search
 vim.o.hlsearch = false
 
@@ -130,7 +133,7 @@ vim.o.completeopt = 'menuone,noselect'
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
 vim.g.mapleader = ';'
-vim.g.maplocalleader = ','
+vim.g.maplocalleader = ';'
 
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
@@ -331,7 +334,6 @@ local on_attach = function(_, bufnr)
   end, { desc = 'Format current buffer with LSP' })
 end
 
-local lspconfig = require("lspconfig")
 -- Enable the following language servers
 --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
 --
@@ -386,7 +388,6 @@ local servers = {
     }
   },
 
-  -- Use pylsp
   pylsp = {
     pylsp = {
       plugins = {
