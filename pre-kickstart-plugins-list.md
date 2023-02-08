@@ -46,19 +46,16 @@ end)
 
   -- Misc Utilities
   -- =============================================
-  use { 'metakirby5/codi.vim' }
+  -- use { 'metakirby5/codi.vim' }
 
+  use { 'folke/which-key.nvim', ... }
   use { 'norcalli/nvim-colorizer.lua', ... }
-
-  use { 'windwp/nvim-autopairs', ... }
-
   use { 'folke/trouble.nvim',
     requires = 'kyazdani42/nvim-web-devicons', ... }
-
   use { 'folke/todo-comments.nvim',
     requires = 'nvim-lua/plenary.nvim', ... }
 
-  use { 'folke/which-key.nvim', ... }
+  use { 'windwp/nvim-autopairs', ... }
 
   use { 'akinsho/bufferline.nvim',
     requires = 'kyazdani42/nvim-web-devicons', ... }
@@ -159,10 +156,9 @@ end)
 ---
 > neovim plugins - add to "install next list"
 
-* [`yes, now`: diffview.nvim: Single tabpage interface for easily cycling through diffs for all modified files for any git rev.](https://github.com/sindrets/diffview.nvim)
-* [`yes, now`: kevinhwang91/nvim-ufo: Not UFO in the sky, but an ultra fold in Neovim.](https://github.com/kevinhwang91/nvim-ufo)
+* [`[x] yes, now`: diffview.nvim: Single tabpage interface for easily cycling through diffs for all modified files for any git rev.](https://github.com/sindrets/diffview.nvim)
+* [`[x] yes, now`: kevinhwang91/nvim-ufo: Not UFO in the sky, but an ultra fold in Neovim.](https://github.com/kevinhwang91/nvim-ufo)
 * [`yes, now`: stevearc/oil.nvim: Neovim file explorer: edit your filesystem like a buffer](https://github.com/stevearc/oil.nvim)
-* [`yes, now`: folke/todo-comments.nvim: ✅ Highlight, list and search todo comments in your projects](https://github.com/folke/todo-comments.nvim)
 * [`yes, now`: trouble.nvim: diagnostics, refs, telescope results, quickfix and location list ..](https://github.com/folke/trouble.nvim)
 * ..
 * [`yes, now`: talha-akram/noctis.nvim: Neovim port of noctis family of themes (https://github.com/liviuschera/noctis)](https://github.com/talha-akram/noctis.nvim)
