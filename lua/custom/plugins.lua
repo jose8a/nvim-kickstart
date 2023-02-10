@@ -57,8 +57,10 @@ return function(use)
     config = function() require('neogit').setup {} end
   }
 
+
   -- Code-folding
   use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
+
 
   -- nvim-ufo ... config-start
   -- TODO: move this config to its own file
@@ -84,6 +86,7 @@ return function(use)
   -- =============================================
   -- nvim-ufo ... config-end
 
+
   use { 'norcalli/nvim-colorizer.lua',
     config = function()
       require('colorizer').setup {
@@ -96,10 +99,12 @@ return function(use)
     end
   }
 
+
   use {
     'stevearc/oil.nvim',
     config = function() require('oil').setup() end
   }
+
 
   use {
     "folke/trouble.nvim",
@@ -113,12 +118,16 @@ return function(use)
     end
   }
 
+
   use { 'jose-elias-alvarez/null-ls.nvim',
     config = function()
       require("null-ls").setup {
         sources = {
+            require("null-ls").builtins.formatting.eslint,
+            require("null-ls").builtins.formatting.rustywind.with({
+                filetypes = { "svelte" }
+            }),
             -- require("null-ls").builtins.formatting.stylua,
-            require("null-ls").builtins.diagnostics.eslint,
             -- require("null-ls").builtins.completion.spell
         }
       }
@@ -159,18 +168,17 @@ return function(use)
 
   -- MODERN COLOR THEMES
   -- =============================================
-  use {
-    'navarasu/onedark.nvim',              -- default for all but MD
-    config = function()
-      require('onedark').setup {
-        style = 'deep'
-      }
-      require('onedark').load()
-    end
-  }
+  -- use {
+  --   'navarasu/onedark.nvim',              -- default for all but MD
+  --   config = function()
+  --     require('onedark').setup {
+  --       style = 'deep'
+  --     }
+  --     require('onedark').load()
+  --   end
+  -- }
 
   use { 'rebelot/kanagawa.nvim' }
-  use { 'folke/tokyonight.nvim' }
   use { 'tiagovla/tokyodark.nvim' }
   use { 'sainnhe/sonokai' }
   use { 'ray-x/aurora' }
@@ -178,6 +186,7 @@ return function(use)
 
   -- 2023.0207 - added these
   use { 'talha-akram/noctis.nvim' }
+  use { 'folke/tokyonight.nvim' }
   use { 'JoosepAlviste/palenightfall.nvim' }
 
 
@@ -187,4 +196,8 @@ return function(use)
   use { 'NLKNguyen/papercolor-theme' }  -- markdown-only theme
   use { 'morhetz/gruvbox' }
   use { 'dracula/vim' }
+
+
+  -- Choose here the default colorscheme
+  -- =============================================
 end
