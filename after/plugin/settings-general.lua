@@ -171,3 +171,7 @@ set.sessionoptions = {
 -- vim.g.UltiSnipsJumpForwardTrigger="<c-b>"
 -- vim.g.UltiSnipsJumpBackwardTrigger="<c-z>"
 
+
+-- vim.cmd [[highlight Search guibg='#D6B860' guifg='#703D3D']]
+vim.cmd [[highlight Search guifg='#342475' guibg='#7EC9D2']]
+vim.cmd [[highlight CurSearch guibg='#D6B860' guifg='#342475']]
