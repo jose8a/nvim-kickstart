@@ -29,6 +29,10 @@ return function(use)
           NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
           TEST = { icon = ">", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
         },
+        highlight = {
+          -- uses treesitter to match keywords in comments only if value = true
+          comments_only = false,
+        },
         colors = {
           error = { "DiagnosticError", "ErrorMsg", "#DC2626" },
           warning = { "DiagnosticWarning", "WarningMsg", "#FBBF24" },
