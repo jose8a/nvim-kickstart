@@ -35,6 +35,22 @@ cmd([[ autocmd BufWritePre * :%s/\s\+$//e ]])
 
 
 -- "-----------------------------------"
+-- " NEOGEN Mappings
+-- "
+-- "   <leader>nf: function (default)
+-- "   <leader>nc: class
+-- "   <leader>nt: type
+-- "   <leader>nm: file/module
+-- "-----------------------------------"
+local opts = { noremap = true, silent = true }
+vim.api.nvim_set_keymap("n", "<Leader>nf", ":lua require('neogen').generate()<CR>", opts)
+vim.api.nvim_set_keymap("n", "<Leader>nc", ":lua require('neogen').generate({ type = 'class' })<CR>", opts)
+vim.api.nvim_set_keymap("n", "<Leader>nm", ":lua require('neogen').generate({ type = 'file' })<CR>", opts)
+vim.api.nvim_set_keymap("n", "<Leader>nt", ":lua require('neogen').generate({ type = 'type' })<CR>", opts)
+
+
+
+-- "-----------------------------------"
 -- " QUICKLY FORCE filetypes for some files
 -- "-----------------------------------"
 map('n', '<leader>sj', ':setf javascript<cr>', options)
@@ -215,10 +231,9 @@ if vim.fn.has('mac') then
   map('n', '<leader>b', ':!/Applications/Brave Browser.app/Contents/MacOS/Brave Browser %<CR>', {})
 end
 
--- FIXME: LUA convert for linux, what are the paths to these two application ??
 if vim.fn.has('linux') then
-  map('n', '<leader>x', ':!/path/to/firefox %<CR>', {})
-  map('n', '<leader>b', ':!/path/to/Brave/Browser %<CR>', {})
+  map('n', '<leader>x', ':!/snap/bin/firefox %<CR>', {})
+  map('n', '<leader>b', ':!/usr/bin/brave-browser %<CR>', {})
 end
 
 

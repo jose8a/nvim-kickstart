@@ -258,7 +258,33 @@ require('lazy').setup({
   -- =============================================
 
 
-  -- Telescope
+  -- Database
+  -- =============================================
+  -- ... tbd
+  'tpope/vim-dadbod',
+  'kristijanhusak/vim-dadbod-ui',
+  'kristijanhusak/vim-dadbod-completion',
+
+
+  -- Docs
+  -- =============================================
+  -- ... tbd
+  {
+      "danymat/neogen",
+      dependencies = "nvim-treesitter/nvim-treesitter",
+      -- config = true,
+      config = function()
+        require('neogen').setup {
+          snippet_engine = "luasnip"
+        }
+      end,
+
+      -- Uncomment next line if you want to follow only stable versions
+      version = "*"
+  },
+
+
+  -- Testing
   -- =============================================
   -- ... tbd
 
@@ -267,21 +293,21 @@ require('lazy').setup({
   -- =============================================
   -- ... tbd
 
+
   -- TMUX
   -- =============================================
   'christoomey/vim-tmux-navigator',
 
   -- MODERN COLOR THEMES
   -- =============================================
-  -- use {
-  --   'navarasu/onedark.nvim',              -- default for all but MD
-  --   config = function()
-  --     require('onedark').setup {
-  --       style = 'deep'
-  --     }
-  --     require('onedark').load()
-  --   end
-  -- }
+  {
+    'navarasu/onedark.nvim',
+    config = function()
+      require('onedark').setup {
+        style = 'deep'
+      }
+    end
+  },
 
   'rebelot/kanagawa.nvim',
   'tiagovla/tokyodark.nvim',
@@ -294,6 +320,10 @@ require('lazy').setup({
   'folke/tokyonight.nvim',
   'JoosepAlviste/palenightfall.nvim',
 
+  -- 2023.0310 - added these
+  { "catppuccin/nvim", name = "catppuccin" },
+  { "embark-theme/vim", name = "embark" },
+
 
   -- LEGACY COLOR THEMES
   -- =============================================
@@ -303,7 +333,7 @@ require('lazy').setup({
   'dracula/vim',
 
 
-  -- Choose here the default colorscheme
+  -- MISC Goodies
   -- =============================================
-
+  'nvim-tree/nvim-web-devicons',
 }, {})
