@@ -240,10 +240,12 @@ require('lazy').setup({
   },
 
 
-  -- use { 'echasnovski/mini.nvim, ... }
-  -- use { 'jackMort/pommodoro-clock.nvim, ... }
-  -- use { 'aaronhallaert/continuous-testing.nvim, ... }
-  -- use { '?? echasnovski/mini.nvim/blob/main/readmes/mini-move.md ??', ... }
+  -- [[
+  -- [[ { 'echasnovski/mini.nvim, ... },
+  -- [[ { 'jackMort/pommodoro-clock.nvim, ... },
+  -- [[ { 'aaronhallaert/continuous-testing.nvim, ... },
+  -- [[ { '?? echasnovski/mini.nvim/blob/main/readmes/mini-move.md ??', ... },
+  -- [[
 
 
   -- Snippets
@@ -261,9 +263,24 @@ require('lazy').setup({
   -- Database
   -- =============================================
   -- ... tbd
-  'tpope/vim-dadbod',
-  'kristijanhusak/vim-dadbod-ui',
-  'kristijanhusak/vim-dadbod-completion',
+  { 'tpope/vim-dadbod',
+    dependencies = {
+      'kristijanhusak/vim-dadbod-ui',
+      'kristijanhusak/vim-dadbod-completion',
+    },
+
+    config = function()
+      require("config.dadbod").setup()
+    end,
+    cmd = {
+      "DBUIToggle",
+      "DBUI",
+      "DBUIAddConnection",
+      "DBUIFindBuffer",
+      "DBUIRenameBuffer",
+      "DBUILastQueryInfo",
+    },
+  },
 
 
   -- Docs
@@ -321,8 +338,9 @@ require('lazy').setup({
   'JoosepAlviste/palenightfall.nvim',
 
   -- 2023.0310 - added these
-  { "catppuccin/nvim", name = "catppuccin" },
-  { "embark-theme/vim", name = "embark" },
+  { 'catppuccin/nvim', name = 'catppuccin' },
+  { 'embark-theme/vim', name = 'embark' },
+  { 'NTBBloodbath/sweetie.nvim', name = 'sweetie' },
 
 
   -- LEGACY COLOR THEMES
@@ -336,4 +354,73 @@ require('lazy').setup({
   -- MISC Goodies
   -- =============================================
   'nvim-tree/nvim-web-devicons',
+  { 'ziontee113/color-picker.nvim',
+      config = function()
+          require('color-picker')
+      -- TODO: add configuration opts shown in the repo
+      end,
+  },
 }, {})
+
+
+
+  -- Misc Utilities
+  -- =============================================
+
+-- [[  use { 'windwp/nvim-autopairs', ... }
+-- [[  use { 'tami5/lspsaga.nvim', ... }
+-- [[
+-- [[  -- TODO: these are next to be installed
+-- [[  -- use { 'p00f/nvim-ts-rainbow' }
+-- [[
+-- [[  use { 'JoosepAlviste/nvim-ts-context-commentstring' }
+
+
+  -- LEGACY VIM UTILITIES ???
+  -- =============================================
+-- [[  use { 'godlygeek/tabular' }
+-- [[  use { 'tpope/vim-surround' }
+-- [[  use { 'mattn/emmet-vim' }
+
+
+  -- Snippets
+  -- TODO/FIXME: should these come before or after nvim-cmp if
+  -- TODO/FIXME: .. nvim-cmp calls setup for any these below?
+  -- =============================================
+--
+-- [[  use { 'SirVer/ultisnips' }
+-- [[  use { 'honza/vim-snippets', rtp = '.' }
+-- [[  use { 'quangnguyen30192/cmp-nvim-ultisnips', rtp = '.'}
+-- [[
+-- [[
+-- [[  use { 'hrsh7th/cmp-buffer' }
+-- [[  use { 'hrsh7th/cmp-path' }
+-- [[  use { 'hrsh7th/cmp-cmdline' }
+-- [[  use { 'hrsh7th/cmp-nvim-lua' }
+
+
+  -- Telescope
+  -- =============================================
+-- [[  use { 'fhill2/telescope-ultisnips.nvim' }
+
+
+-- [[
+-- [[  -- FIX: additional plugins to install next
+-- [[  -- =============================================
+-- [[
+-- [[  -- very nifty navigation / alternative to vim-sneak
+-- [[  -- * [ ] .. use { 'ggandor/lightspeed.nvim' }
+-- [[  -- ..
+-- [[  -- improved selection of objects/subjects via treesitter
+-- [[  -- * [ ] .. use { 'RRethy/nvim-treesitter-textsubjects' }
+-- [[  -- ..
+-- [[  -- adds ts-syntax-highlighting to 'function' arguments
+-- [[  -- * [ ] .. use { 'm-demare/hlargs.nvim' }
+-- [[  -- ..
+-- [[  -- utils to improve TS dev w/NV LSP
+-- [[  -- * [ ] .. use { 'jose-elias-alvarez/nvim-lsp-ts-utils' }
+-- [[  -- ..
+-- [[  -- vim.ui interfaces - improve the defaults
+-- [[  -- * [ ] .. use { 'stevearc/dressing.nvim' }
+-- [[
+
