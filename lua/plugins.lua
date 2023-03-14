@@ -44,7 +44,14 @@ require('lazy').setup({
       { 'j-hui/fidget.nvim', opts = {} },
 
       -- Additional lua configuration, makes nvim stuff amazing!
-      'folke/neodev.nvim',
+      {
+        'folke/neodev.nvim',
+        config = function()
+          require("neodev").setup {
+            library = { plugins = { "neotest" }, types = true },
+          }
+        end
+      }
     },
   },
 
@@ -270,7 +277,7 @@ require('lazy').setup({
     },
 
     config = function()
-      require("config.dadbod").setup()
+      require("plugins.dadbod").setup()
     end,
     cmd = {
       "DBUIToggle",
@@ -304,6 +311,27 @@ require('lazy').setup({
   -- Testing
   -- =============================================
   -- ... tbd
+  {
+    'nvim-neotest/neotest',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'nvim-treesitter/nvim-treesitter',
+      'antoinemadec/FixCursorHold.nvim',
+      'marilari88/neotest-vitest',
+      'nvim-neotest/neotest-python',
+      'rouge8/neotest-rust',
+    },
+    config = function()
+      require('neotest').setup {
+        adapters = {
+          require('neotest-vitest'),
+          require('neotest-python'),
+          require('neotest-rust')
+        }
+      }
+      require("plugins.neotest").setup()
+    end
+  },
 
 
   -- Statusline
