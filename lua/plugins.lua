@@ -255,8 +255,37 @@ require('lazy').setup({
   -- [[
 
 
-  -- Snippets
+  -- Telescope
   -- =============================================
+  -- [[  use { 'fhill2/telescope-ultisnips.nvim' }
+  {'axkirillov/easypick.nvim', dependencies = 'nvim-telescope/telescope.nvim'},
+  {"lpoto/telescope-tasks.nvim"},
+  {
+    "nvim-telescope/telescope-arecibo.nvim",
+    rocks = {"openssl", "lua-http-parser"}
+  },
+  {
+    'paopaol/telescope-git-diffs.nvim',
+     dependencies = {
+       "nvim-lua/plenary.nvim",
+       "sindrets/diffview.nvim",
+     },
+  },
+  {
+    "benfowler/telescope-luasnip.nvim",
+    module = "telescope._extensions.luasnip",  -- if you wish to lazy-load
+  },
+  {
+    'sudormrfbin/cheatsheet.nvim',
+    dependencies = {
+      {'nvim-telescope/telescope.nvim'},
+      {'nvim-lua/popup.nvim'},
+      {'nvim-lua/plenary.nvim'},
+    }
+  },
+
+    -- Snippets
+    -- =============================================
 
 
   -- Completion
@@ -425,11 +454,6 @@ require('lazy').setup({
 -- [[  use { 'hrsh7th/cmp-path' }
 -- [[  use { 'hrsh7th/cmp-cmdline' }
 -- [[  use { 'hrsh7th/cmp-nvim-lua' }
-
-
-  -- Telescope
-  -- =============================================
--- [[  use { 'fhill2/telescope-ultisnips.nvim' }
 
 
 -- [[
