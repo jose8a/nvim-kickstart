@@ -85,16 +85,22 @@ require('telescope').setup {
       },
     },
     extensions = {
+      arecibo = {
+        ["selected_engine"]   = 'google',
+        ["url_open_command"]  = 'xdg-open',
+        ["show_http_headers"] = false,
+        ["show_domain_icons"] = false,
+      },
     }
   },
 }
 
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
-pcall(require('telescope').load_extension, 'tasks')
-pcall(require('telescope').load_extension, 'arecibo')
-pcall(require('telescope').load_extension, 'git_diffs')
 pcall(require('telescope').load_extension, 'luasnip')
+pcall(require('telescope').load_extension, 'tasks')
+pcall(require('telescope').load_extension, 'git_diffs')
+-- pcall(require('telescope').load_extension, 'arecibo')
 
 -- See `:help telescope.builtin`
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })

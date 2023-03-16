@@ -261,10 +261,6 @@ require('lazy').setup({
   {'axkirillov/easypick.nvim', dependencies = 'nvim-telescope/telescope.nvim'},
   {"lpoto/telescope-tasks.nvim"},
   {
-    "nvim-telescope/telescope-arecibo.nvim",
-    rocks = {"openssl", "lua-http-parser"}
-  },
-  {
     'paopaol/telescope-git-diffs.nvim',
      dependencies = {
        "nvim-lua/plenary.nvim",
@@ -283,6 +279,10 @@ require('lazy').setup({
       {'nvim-lua/plenary.nvim'},
     }
   },
+  -- {
+  --   "nvim-telescope/telescope-arecibo.nvim",
+  --   rocks = {"openssl", "lua-http-parser"}
+  -- },
 
     -- Snippets
     -- =============================================
