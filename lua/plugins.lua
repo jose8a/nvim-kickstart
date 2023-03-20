@@ -57,7 +57,33 @@ require('lazy').setup({
 
   { -- Autocompletion
     'hrsh7th/nvim-cmp',
-    dependencies = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
+    dependencies = {
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-path',
+      'hrsh7th/cmp-nvim-lua',
+      'ray-x/cmp-treesitter',
+      'hrsh7th/cmp-cmdline',
+      'hrsh7th/cmp-calc',
+      'f3fora/cmp-spell',
+      'hrsh7th/cmp-emoji',
+      'hrsh7th/cmp-nvim-lsp-signature-help',
+      {
+        'L3MON4D3/LuaSnip',
+        dependencies = {
+          'rafamadriz/friendly-snippets',
+          'honza/vim-snippets',
+        },
+
+        config = function()
+          require("plugins.luasnip").setup()
+        end,
+      },
+      'saadparwaiz1/cmp_luasnip',
+      'rafamadriz/friendly-snippets',
+      'honza/vim-snippets',
+      enabled = true
+    },
   },
 
   -- Useful plugin to show you pending keybinds.
@@ -269,7 +295,9 @@ require('lazy').setup({
   },
   {
     "benfowler/telescope-luasnip.nvim",
-    module = "telescope._extensions.luasnip",  -- if you wish to lazy-load
+
+    -- if you wish to lazy-load
+    module = "telescope._extensions.luasnip",
   },
   {
     'sudormrfbin/cheatsheet.nvim',

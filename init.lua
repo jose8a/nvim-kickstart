@@ -365,9 +365,12 @@ cmp.setup {
     end,
   },
   mapping = cmp.mapping.preset.insert {
-    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+    ["<C-j>"] = cmp.mapping.select_next_item(),
+    ["<C-k>"] = cmp.mapping.select_prev_item(),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
     ['<C-Space>'] = cmp.mapping.complete {},
+    ['<C-e>'] = cmp.mapping.abort(),
     ['<CR>'] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
@@ -394,8 +397,37 @@ cmp.setup {
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
+    { name = "buffer" },
+    { name = "path" },
+    { name = "nvim_lua" },
+    { name = "treesitter" },
+    { name = "calc" },
+    { name = "spell" },
+    { name = "emoji" },
+    { name = 'nvim_lsp_signature_help' },
   },
 }
+
+-- Use buffer source for `/` and `?`
+-- (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline({ '/', '?' }, {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = {
+    { name = 'buffer' }
+  }
+})
+
+-- Use cmdline & path source for ':'
+-- (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+    { name = 'cmdline' }
+  })
+})
+
 
 -- Finally, enable the palenightfall colorscheme as
 -- the default colorscheme
