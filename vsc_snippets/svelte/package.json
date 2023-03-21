@@ -1,30 +1,34 @@
 {
-	"name": "svelte-snippets",
-	"contributes": {
+  "name": "svelte-snippets",
+  "contributes": {
     "snippets": [
       {
         "language": "svelte",
-        "path": "./svelte-1.json"
+        "path": "./sveltekit.json"
+      },
+      {
+        "language": "typescript",
+        "path": "./sveltekit.json"
+      },
+      {
+        "language": "javascript",
+        "path": "./sveltekit.json"
+      },
+      {
+        "language": "html",
+        "path": "./sveltekit.json"
       },
       {
         "language": "svelte",
-        "path": "./svelte-script-1.json"
+        "path": "./svelte-base.json"
       },
       {
         "language": "svelte",
-        "path": "./svelte-style-1.json"
+        "path": "./svelte-script.json"
       },
       {
         "language": "svelte",
-        "path": "./svelte-2.json"
-      },
-      {
-        "language": "svelte",
-        "path": "./svelte-script-2.json"
-      },
-      {
-        "language": "svelte",
-        "path": "./svelte-style-2.json"
+        "path": "./svelte-style.json"
       }
     ]
   }
