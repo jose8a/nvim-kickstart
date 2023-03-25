@@ -102,14 +102,14 @@ require('lazy').setup({
     },
   },
 
-  { -- Theme inspired by Atom
-    'JoosepAlviste/palenightfall.nvim',
-    -- 'navarasu/onedark.nvim',
-    priority = 1000,
-    config = function()
-      vim.cmd.colorscheme 'palenightfall'
-    end,
-  },
+  -- { -- Theme inspired by Atom
+  --   'JoosepAlviste/palenightfall.nvim',
+  --   -- 'navarasu/onedark.nvim',
+  --   priority = 1000,
+  --   config = function()
+  --     vim.cmd.colorscheme 'palenightfall'
+  --   end,
+  -- },
 
   { -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
@@ -117,7 +117,8 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'palenight',
+        -- theme = 'palenight',
+        theme = 'onedark',
         component_separators = '|',
         section_separators = '',
       },
@@ -423,7 +424,13 @@ require('lazy').setup({
   'JoosepAlviste/palenightfall.nvim',
 
   -- 2023.0310 - added these
-  { 'catppuccin/nvim', name = 'catppuccin' },
+  { 'catppuccin/nvim',
+    name = 'catppuccin',
+    priority = 1000,
+    config = function()
+      vim.cmd.colorscheme 'catppuccin'
+    end,
+  },
   { 'embark-theme/vim', name = 'embark' },
   { 'NTBBloodbath/sweetie.nvim', name = 'sweetie' },
 
