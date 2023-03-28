@@ -216,11 +216,8 @@ require('lazy').setup({
 
   -- Misc Utilities
   -- =============================================
-  -- Lazy-Kickstart has this in the init.lua, so not needed here anymore
-  -- use({
-  --   "folke/which-key.nvim",
-  --     config = function() require("which-key").setup() end
-  -- })
+  -- Sessions
+  { 'tpope/vim-obsession' },
 
 
   -- Git/Github Utilities
